@@ -3,6 +3,7 @@ package com.shj.begin.adapter.in.web;
 import com.shj.begin.adapter.in.web.com.dto.PersonRequestDTO;
 import com.shj.begin.adapter.in.web.com.dto.ResponseDTO;
 import com.shj.begin.adapter.in.web.com.mapper.PersonAdapterToApplicationMapper;
+import com.shj.begin.application.port.in.PersonInPort;
 import com.shj.begin.domain.HeaderVO;
 import com.shj.begin.domain.Person;
 import com.shj.begin.infrastructure.common.ApiResponse;
@@ -20,6 +21,8 @@ import java.util.Map;
 @Slf4j
 @RequiredArgsConstructor
 public abstract class PersonInUseCase<T extends PersonRequestDTO> {
+
+    protected final PersonInPort personInPort;
 
     @PostMapping("/v1/person")
     public ResponseEntity<ApiResponse<ResponseDTO>> savePerson(

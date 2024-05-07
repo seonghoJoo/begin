@@ -5,6 +5,7 @@ import com.shj.begin.adapter.in.web.com.dto.PersonRequestDTO;
 import com.shj.begin.adapter.in.web.com.dto.ResponseDTO;
 import com.shj.begin.adapter.in.web.com.mapper.PersonAdapterToApplicationMapper;
 import com.shj.begin.adapter.in.web.kr.dto.KRPersonRequestDTO;
+import com.shj.begin.application.port.in.PersonInPort;
 import com.shj.begin.domain.HeaderVO;
 import com.shj.begin.domain.Person;
 import com.shj.begin.infrastructure.common.ApiResponse;
@@ -13,8 +14,7 @@ import com.shj.begin.infrastructure.util.CommonUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PostMapping;import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 
 import java.time.LocalDateTime;
@@ -25,6 +25,10 @@ import java.util.Map;
 @KRBean
 @Controller
 public class KRPersonInUseCase<K extends KRPersonRequestDTO> extends PersonInUseCase<PersonRequestDTO> {
+
+    public KRPersonInUseCase(PersonInPort personInPort) {
+        super(personInPort);
+    }
 
     @PostMapping("/v2/person/secret")
     public ResponseEntity<ApiResponse<ResponseDTO>> secret(
