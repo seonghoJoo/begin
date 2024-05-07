@@ -5,6 +5,11 @@ plugins {
     id 'org.graalvm.buildtools.native' version '0.9.28'
 }
 
+
+ext {
+    set('springCloudVersion', "2023.0.0")
+}
+
 group = 'com.shj'
 version = '0.0.1-SNAPSHOT'
 
@@ -22,9 +27,13 @@ repositories {
     mavenCentral()
 }
 
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
+
 dependencies {
-    // jdbc SQL
-    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
 
     // mongodb
     implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
@@ -64,10 +73,11 @@ dependencies {
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
 
     //undertow
-    implementation 'org.springframework.boot:spring-boot-starter-undertow'
+//    implementation 'org.springframework.boot:spring-boot-starter-undertow'
 
     // actuator
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
 }
 
 tasks.named('test') {

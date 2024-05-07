@@ -1,1 +1,10 @@
-spring.application.name=begin
+country: US
+
+spring:
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+server:
+  port: 8096
