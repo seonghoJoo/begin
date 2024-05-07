@@ -23,19 +23,51 @@ repositories {
 }
 
 dependencies {
+    // jdbc SQL
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+
+    // mongodb
     implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+
+    // redis
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
+    // security
     implementation 'org.springframework.boot:spring-boot-starter-security'
+    testImplementation 'org.springframework.security:spring-security-test'
+
+    // validation
     implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    // web
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-web-services'
+
+    // kafka
+    implementation 'org.apache.kafka:kafka-clients'
     implementation 'org.springframework.kafka:spring-kafka'
+    implementation 'org.springframework.kafka:spring-kafka-test'
+    testImplementation 'org.springframework.kafka:spring-kafka-test'
+
+    // lombok
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+
+    // test
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'org.springframework.kafka:spring-kafka-test'
-    testImplementation 'org.springframework.security:spring-security-test'
+
+    // mapstruct
+    implementation 'org.mapstruct:mapstruct:1.5.5.Final'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+
+    // open feign
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+
+    //undertow
+    implementation 'org.springframework.boot:spring-boot-starter-undertow'
+
+    // actuator
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
 }
 
 tasks.named('test') {
