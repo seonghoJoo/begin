@@ -2,12 +2,10 @@ package com.shj.begin.adapter.in.web.kr;
 
 import com.shj.begin.adapter.in.web.PersonInUseCase;
 import com.shj.begin.adapter.in.web.com.dto.PersonRequestDTO;
-import com.shj.begin.adapter.in.web.com.dto.ResponseDTO;
-import com.shj.begin.adapter.in.web.com.mapper.PersonAdapterToApplicationMapper;
+import com.shj.begin.adapter.in.web.com.dto.PersonResponseDTO;
 import com.shj.begin.adapter.in.web.kr.dto.KRPersonRequestDTO;
 import com.shj.begin.application.port.in.PersonInPort;
 import com.shj.begin.domain.HeaderVO;
-import com.shj.begin.domain.Person;
 import com.shj.begin.infrastructure.common.ApiResponse;
 import com.shj.begin.infrastructure.common.KRBean;
 import com.shj.begin.infrastructure.util.CommonUtil;
@@ -31,7 +29,7 @@ public class KRPersonInUseCase<K extends KRPersonRequestDTO> extends PersonInUse
     }
 
     @PostMapping("/v2/person/secret")
-    public ResponseEntity<ApiResponse<ResponseDTO>> secret(
+    public ResponseEntity<ApiResponse<PersonResponseDTO>> secret(
             @RequestHeader Map<String, String> header,
             @RequestBody K body) {
 
@@ -39,8 +37,8 @@ public class KRPersonInUseCase<K extends KRPersonRequestDTO> extends PersonInUse
         log.info("KRPersonInUseCase secret header: {}", headerVO);
         //Person person = PersonAdapterToApplicationMapper.INSTANCE.map(body, headerVO);
 
-        return ResponseEntity.ok(ApiResponse.<ResponseDTO>builder()
-                .data(ResponseDTO.builder()
+        return ResponseEntity.ok(ApiResponse.<PersonResponseDTO>builder()
+                .data(PersonResponseDTO.builder()
                         .id("1")
                         .lastUpdate(LocalDateTime.now())
                         .build())

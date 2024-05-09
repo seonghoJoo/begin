@@ -1,6 +1,7 @@
 package com.shj.begin.adapter.in.web.com.mapper;
 
 import com.shj.begin.adapter.in.web.com.dto.PersonRequestDTO;
+import com.shj.begin.adapter.in.web.com.dto.PersonResponseDTO;
 import com.shj.begin.domain.HeaderVO;
 import com.shj.begin.domain.Person;
 import org.mapstruct.AfterMapping;
@@ -19,4 +20,7 @@ public interface PersonAdapterToApplicationMapper {
     default void setHeader(@MappingTarget Person person, HeaderVO headerVO) {
         person.setHeaderVO(headerVO);
     }
+
+
+    PersonResponseDTO map(Person person);
 }

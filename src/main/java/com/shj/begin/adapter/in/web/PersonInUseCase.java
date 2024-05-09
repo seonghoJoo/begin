@@ -1,7 +1,7 @@
 package com.shj.begin.adapter.in.web;
 
 import com.shj.begin.adapter.in.web.com.dto.PersonRequestDTO;
-import com.shj.begin.adapter.in.web.com.dto.ResponseDTO;
+import com.shj.begin.adapter.in.web.com.dto.PersonResponseDTO;
 import com.shj.begin.adapter.in.web.com.mapper.PersonAdapterToApplicationMapper;
 import com.shj.begin.application.port.in.PersonInPort;
 import com.shj.begin.domain.HeaderVO;
@@ -25,7 +25,7 @@ public abstract class PersonInUseCase<T extends PersonRequestDTO> {
     protected final PersonInPort personInPort;
 
     @PostMapping("/v1/person")
-    public ResponseEntity<ApiResponse<ResponseDTO>> savePerson(
+    public ResponseEntity<ApiResponse<PersonResponseDTO>> savePerson(
             @RequestHeader Map<String, String> header,
             @RequestBody T body) {
         log.info("PersonInUseCase example header: {}", header);
@@ -36,8 +36,11 @@ public abstract class PersonInUseCase<T extends PersonRequestDTO> {
 
         log.info("PersonInUseCase example person: {}", person);
 
-        return ResponseEntity.ok(ApiResponse.<ResponseDTO>builder()
-                .data(ResponseDTO.builder()
+        Person result = personInPort.savePerson(person);
+
+
+        return ResponseEntity.ok(ApiResponse.<PersonResponseDTO>builder()
+                .data(PersonResponseDTO.builder()
                         .id("1")
                         .lastUpdate(LocalDateTime.now())
                         .build())
