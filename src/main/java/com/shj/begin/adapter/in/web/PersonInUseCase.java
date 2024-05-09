@@ -38,12 +38,8 @@ public abstract class PersonInUseCase<T extends PersonRequestDTO> {
 
         Person result = personInPort.savePerson(person);
 
-
         return ResponseEntity.ok(ApiResponse.<PersonResponseDTO>builder()
-                .data(PersonResponseDTO.builder()
-                        .id("1")
-                        .lastUpdate(LocalDateTime.now())
-                        .build())
+                .data(PersonAdapterToApplicationMapper.INSTANCE.map(result))
                 .statusCode(200)
                 .msg("success")
                 .build());
