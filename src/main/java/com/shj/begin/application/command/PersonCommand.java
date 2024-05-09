@@ -1,10 +1,20 @@
 package com.shj.begin.application.command;
 
 import com.shj.begin.application.port.in.PersonInPort;
+import com.shj.begin.application.port.out.PersonOutPort;
+import com.shj.begin.domain.Person;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RequiredArgsConstructor
 public abstract class PersonCommand implements PersonInPort {
+
+    protected PersonOutPort personOutPort;
+
+    @Override
+    public Person savePerson(Person person) {
+        personOutPort.savePerson(person);
+        return null;
+    }
 }
