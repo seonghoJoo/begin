@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 
-import java.time.LocalDateTime;
 import java.util.Map;
 
 @Slf4j
@@ -26,20 +25,15 @@ public abstract class PersonInUseCase<T extends PersonRequestDTO> {
 
     @PostMapping("/v1/person")
     public ResponseEntity<ApiResponse<PersonResponseDTO>> savePerson(
-            @RequestHeader Map<String, String> header,
-            @RequestBody T body) {
-        log.info("PersonInUseCase example header: {}", header);
+            @RequestHeader final Map<String, String> header,
+            @RequestBody final T body) {
 
         HeaderVO headerVO = CommonUtil.extractHeader(header);
 
-        Person person = PersonAdapterToApplicationMapper.INSTANCE.map(body, headerVO);
-
-        log.info("PersonInUseCase example person: {}", person);
-
-        Person result = personInPort.savePerson(person);
+        Person person = PersonAdapterToApplicationMapper.INSTANCE.toPerson(body, headerVO);
 
         return ResponseEntity.ok(ApiResponse.<PersonResponseDTO>builder()
-                .data(PersonAdapterToApplicationMapper.INSTANCE.map(result))
+                .data(PersonAdapterToApplicationMapper.INSTANCE.toPersonResponseDTO(personInPort.savePerson(person)))
                 .statusCode(200)
                 .msg("success")
                 .build());
