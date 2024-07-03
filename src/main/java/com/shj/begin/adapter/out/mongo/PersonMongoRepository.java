@@ -1,9 +1,10 @@
 package com.shj.begin.adapter.out.mongo;
 
+import com.shj.begin.adapter.out.mongo.entity.PersonEntity;
 import com.shj.begin.domain.Person;
 
 public class PersonMongoRepository {
-    public void savePerson(Person person) {
-
+    public PersonEntity savePerson(Person person) {
+        return null;
     }
 }

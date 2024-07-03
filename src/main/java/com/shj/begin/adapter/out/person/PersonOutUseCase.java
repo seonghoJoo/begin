@@ -13,8 +13,7 @@ public class PersonOutUseCase implements PersonOutPort {
 
     @Override
     public Person savePerson(Person person){
-        PersonEntity personEntity =
-        personMongoRepository.savePerson(person);
+        PersonEntity personEntity = personMongoRepository.savePerson(person);
         return null;
     }
 }
