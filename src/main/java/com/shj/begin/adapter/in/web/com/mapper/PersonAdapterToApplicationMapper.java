@@ -14,7 +14,7 @@ public interface PersonAdapterToApplicationMapper {
 
     PersonAdapterToApplicationMapper INSTANCE = Mappers.getMapper(PersonAdapterToApplicationMapper.class);
 
-    Person map(PersonRequestDTO personRequestDTO, HeaderVO headerVO);
+    Person toPerson(PersonRequestDTO personRequestDTO, HeaderVO headerVO);
 
     @AfterMapping
     default void setHeader(@MappingTarget Person person, HeaderVO headerVO) {
@@ -22,5 +22,5 @@ public interface PersonAdapterToApplicationMapper {
     }
 
 
-    PersonResponseDTO map(Person person);
+    PersonResponseDTO toPersonResponseDTO(Person person);
 }
