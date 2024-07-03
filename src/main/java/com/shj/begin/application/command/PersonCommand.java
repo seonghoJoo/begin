@@ -5,6 +5,7 @@ import com.shj.begin.application.port.out.PersonOutPort;
 import com.shj.begin.domain.Person;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +13,8 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Slf4j
 @RequiredArgsConstructor
-public abstract class PersonCommand implements PersonInPort {
+@Service
+public class PersonCommand implements PersonInPort {
 
     protected PersonOutPort personOutPort;
     Map<String, String> instance = new ConcurrentHashMap<>();
