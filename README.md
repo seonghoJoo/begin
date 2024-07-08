@@ -10,14 +10,14 @@
 ##      1) adapter.in
    - `adapter.in` 패키지는 외부에서 들어오는 요청을 처리하는 패키지이다.
    - HTTP, GRPC, Kafka 등 외부에서 들어오는 요청을 처리하는 부분이다.
+   - Controller라고 보면 된다.
 ```angular2html
    - abstract PersonInUseCase 
    - ComPersonInUseCase extends PersonInUseCase (한국외 지역 특화 Controller)
    - KRPersonInUseCase extends PersonInUseCase (한국 지역 특화 Controller)
 ```
 ##      2) application.command
-   - `adapter.in` 에서 Service를 호출하는 부분이다.
-   - `port.in` 을 구현받는다.
+   - `adapter.in` 에서 자신의 도메인과 일치하는 `port.in`을 호출하고, 이를 구현한 `Service`이다.
 ```angular2html
    - interface PersonInPort
    - PersonCommand implements PersonInPort
