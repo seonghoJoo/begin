@@ -7,6 +7,7 @@ import com.shj.begin.application.port.in.PersonInPort;
 import com.shj.begin.domain.HeaderVO;
 import com.shj.begin.domain.Person;
 import com.shj.begin.infrastructure.common.ApiResponse;
+import com.shj.begin.infrastructure.common.Const;
 import com.shj.begin.infrastructure.util.CommonUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -34,8 +35,8 @@ public abstract class PersonInUseCase<T extends PersonRequestDTO> {
 
         return ResponseEntity.ok(ApiResponse.<PersonResponseDTO>builder()
                 .data(PersonAdapterToApplicationMapper.INSTANCE.toPersonResponseDTO(personInPort.savePerson(person)))
-                .statusCode(200)
-                .msg("success")
+                .statusCode(Const.STATUS_200)
+                .msg(Const.STATUS_200_MESSAGE)
                 .build());
     }
 }
