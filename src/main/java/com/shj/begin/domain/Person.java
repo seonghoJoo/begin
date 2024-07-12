@@ -13,6 +13,9 @@ public class Person {
     private String phoneNumber;
     private String email;
     private Addr address;
+    private float height;
+    private float weight;
+    private float bmi;
 
     private HeaderVO headerVO;
 
@@ -23,5 +26,9 @@ public class Person {
         private String city;
         private String street;
         private String zipCode;
+    }
+
+    public void setBMI(){
+        this.bmi = weight / (height * height);
     }
 }

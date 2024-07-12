@@ -12,6 +12,8 @@ public class PersonRequestDTO {
     private String phoneNumber;
     private String email;
     private Addr address;
+    private Float weight;
+    private Float height;
 
     @Getter
     @Setter

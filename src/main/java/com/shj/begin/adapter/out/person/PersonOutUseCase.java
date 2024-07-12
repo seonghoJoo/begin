@@ -19,6 +19,7 @@ public class PersonOutUseCase implements PersonOutPort {
     @Override
     public Person savePerson(Person person){
         PersonEntity personEntity = personMongoRepository.savePerson(person);
+
         return null;
     }
 
@@ -33,5 +34,11 @@ public class PersonOutUseCase implements PersonOutPort {
             log.error("Error occurred while sending person to external system", e);
             throw new Exception("Error occurred while sending person to external system", e);
         }
+    }
+    // 예시를 위한 함수
+    @Override
+    public Person setPersonBMI(Person person) {
+        person.setBMI();
+        return person;
     }
 }
