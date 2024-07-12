@@ -18,8 +18,14 @@ import org.springframework.web.bind.annotation.RequestHeader;
 
 import java.util.Map;
 
+// adapter.in.web.com.ComPersonInUseCase,
+// adapter.in.web.kr.KRPersonInUseCase
+// 이 국가에 따라 빈등록이 되도록 하였다.
+// 따라서 PersonInUseCase는 abstract class로 선언하고 빈으로 등록되지 않도록 한다.
 @Slf4j
 @RequiredArgsConstructor
+// <T extends PersonRequestDTO> 인 이유. 각 국가마다 다른 RequestDTO가 들어올 수 있다.
+// 따라서 제네릭으로 대응하기 위함이다.
 public abstract class PersonInUseCase<T extends PersonRequestDTO> {
 
     protected final PersonInPort personInPort;
@@ -30,7 +36,7 @@ public abstract class PersonInUseCase<T extends PersonRequestDTO> {
             @RequestBody final T body) {
 
         HeaderVO headerVO = CommonUtil.extractHeader(header);
-
+        // MapStruct를 이용해 Domain으로 변환을 해야한다.
         Person person = PersonAdapterToApplicationMapper.INSTANCE.toPerson(body, headerVO);
 
         return ResponseEntity.ok(ApiResponse.<PersonResponseDTO>builder()
