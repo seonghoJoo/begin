@@ -17,12 +17,9 @@ import java.util.concurrent.ConcurrentHashMap;
 public class PersonCommand implements PersonInPort {
 
     protected PersonOutPort personOutPort;
-    Map<String, String> instance = new ConcurrentHashMap<>();
 
     @Override
     public Person savePerson(Person person) {
-
-        Map<String, String> local = new HashMap<>(); // 로컬 변수는 동시성 이슈 발생 불가능 => HashMap 사용
         personOutPort.savePerson(person);
         return null;
     }
