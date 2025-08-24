@@ -11,7 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RequiredArgsConstructor
-public class PersonOutUseCase implements PersonOutPort {
+public abstract class PersonOutUseCase implements PersonOutPort {
 
     private final PersonMongoRepository personMongoRepository;
     private final OgwFeignClient ogwFeignClient;
