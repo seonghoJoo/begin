@@ -1,6 +1,6 @@
 package com.shj.begin.adapter.in.web.kr;
 
-import com.shj.begin.adapter.in.web.PersonInUseCase;
+import com.shj.begin.adapter.in.web.abstract_group.PersonInUseCase;
 import com.shj.begin.adapter.in.web.com.dto.PersonRequestDTO;
 import com.shj.begin.adapter.in.web.com.dto.PersonResponseDTO;
 import com.shj.begin.adapter.in.web.kr.dto.KRPersonRequestDTO;

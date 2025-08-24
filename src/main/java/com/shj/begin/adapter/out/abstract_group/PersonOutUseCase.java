@@ -1,8 +1,8 @@
-package com.shj.begin.adapter.out.person;
+package com.shj.begin.adapter.out.abstract_group;
 
-import com.shj.begin.adapter.out.http.OgwFeignClient;
-import com.shj.begin.adapter.out.mongo.PersonMongoRepository;
-import com.shj.begin.adapter.out.mongo.entity.PersonEntity;
+import com.shj.begin.adapter.module.http.OgwFeignClient;
+import com.shj.begin.adapter.module.mongo.PersonMongoRepository;
+import com.shj.begin.adapter.module.mongo.entity.PersonEntity;
 import com.shj.begin.application.port.out.PersonOutPort;
 import com.shj.begin.domain.Person;
 import feign.FeignException;

@@ -1,4 +1,4 @@
-package com.shj.begin.adapter.in.web;
+package com.shj.begin.adapter.in.web.abstract_group;
 
 import com.shj.begin.adapter.in.web.com.dto.PersonRequestDTO;
 import com.shj.begin.adapter.in.web.com.dto.PersonResponseDTO;

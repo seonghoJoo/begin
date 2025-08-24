@@ -1,4 +1,4 @@
-package com.shj.begin.adapter.out.http;
+package com.shj.begin.adapter.module.http;
 
 import com.shj.begin.domain.Person;
 import org.springframework.cloud.openfeign.FeignClient;

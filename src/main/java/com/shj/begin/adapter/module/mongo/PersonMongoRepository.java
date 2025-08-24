@@ -1,6 +1,6 @@
-package com.shj.begin.adapter.out.mongo;
+package com.shj.begin.adapter.module.mongo;
 
-import com.shj.begin.adapter.out.mongo.entity.PersonEntity;
+import com.shj.begin.adapter.module.mongo.entity.PersonEntity;
 import com.shj.begin.domain.Person;
 import org.springframework.stereotype.Repository;
 
